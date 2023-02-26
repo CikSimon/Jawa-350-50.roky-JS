@@ -7,44 +7,54 @@
     <title>Best game</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
     <script src="script.js"></script>
 </head>
 <body>
-    <script src="game.js"></script>
     <section>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-lg-8">
-                    <h1>HRA KAMEŇ, PAPIER, NOŽNICE</h1>
+                    <h1>ROCK, PAPER, SCISSORS</h1>
                     <p class="fw-bold">
-                        Pravidlá:
+                        RULES:
                     </p>
                     <ul>
                         <li>
-                            Na úvod si vyber medzi možnosťami: "kamen", "papier", "noznice", a počítač si tiež vyberie jednu z možností.
+                            PRESS START
                         </li>
                         <li>
-                            Výsledky môžeš vidieť nižšie.
+                            CHOOSE 1,2 or 3
                         </li>
                         <li>
-                            Prajem veľa štastia. 
+                            ROCK = 1
+                        </li>
+                        <li>
+                            PAPER = 2
+                        </li>
+                        <li>
+                            SCISSORS = 3
+                        </li>
+                        <li>
+                            I hope you will understand the rest of the rules
+                        </li>
+                        <li>
+                            <img style="max-width: 300px;" src="./1200px-Rock-paper-scissors.svg.png" alt="">
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-4  mt-5">
-                    <button type="button" class="btn btn-primary mt-5 btn-lg">START</button>
+                    <button onclick= "mainfunction()" type="button" class="btn btn-primary mt-5 btn-lg">START</button>
                 </div>
                 <div class="container">
                     <div class="row mt-5 d-flex">
                         <div class="col-sm-6">
                             <div class="fw-bold h1">
-                                Tvoje score:
+                                Tvoje score: <p></p><span id="player-score"></span></p>
                             </div>
                         </div>
                         <div class="col-sm-6 mt2">
                             <div class="fw-bold h1">
-                                Score počítača:
+                                Score počítača: <p></p><span id="computer-score"></span></p>
                             </div>
                         </div>
                     </div>
