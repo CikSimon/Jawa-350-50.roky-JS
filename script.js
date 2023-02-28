@@ -1,70 +1,69 @@
     {/* <li>
-        ROCK = 1
+       1 ROCK = R
     </li>
     <li>
-        PAPER = 2
+       2 PAPER = P
     </li>
     <li>
-        SCISSORS = 3
+       3 SCISSORS = S
     </li> */}
 
-var playerscore = 20
-var computerscore = 30
 
-var spanElement1 = document.getElementById("computer-score");
-spanElement1.textContent = computerScore;
+// counter
 
-var spanElement2 = document.getElementById("player-score");
-spanElement2.textContent = playerScore;
+// main block
 
 function mainfunction() {
-    alert("this is the best game in the world")
-    var player = prompt("choose 1,2 or 3:", "" )
-    var computer = Math.floor(Math.random() * 3) + 1
-    alert ("pc=" + computer)
-    console.log("first part okay")
-    
-    if (player == 1 && computer == 2) {
-        alert("computer won")
-        computerscore = computerscore + 1
-        console.log("computer won")
+    let playerscore = 0
+    let computerscore = 0
 
-    }else if (player == 1 && computer == 3) {
-        alert("you won")
-        playerscore = playerscore + 1
-        console.log("you won")
-    }else if (player == 1 && computer == 1) {
-        alert("nobody won")
-        console.log("nobody won")
+    let spanElement1 = document.getElementById("computer-score")
+    let spanElement2 = document.getElementById("player-score")
     
+    alert("this is the best game in the world")
+    console.log("alert")
+    let player = prompt("choose R, P, or S:", "")
+    console.log("player=" + player)
+    let letters = ['R', 'S', 'P']
+    let computer = letters[Math.floor(Math.random() * 3)]
+    console.log("pc=" + computer)
+    alert("pc=" + computer)
     
-    
-    }else if (player == 2 && computer == 1) {
-        alert("you won")
-        playerscore = playerscore + 1
-        console.log("you won")
-    }else if (player == 2 && computer == 2) {
-        alert("nobody won")
-        console.log("nobody won")
-    }else if (player == 2 && computer == 3) {
-        alert("computer won")
-        computerscore = computerscore + 1
-        console.log("computer won")
-    
-    
-    
-    }else if (player == 3 && computer == 1) {
-        alert("computer won")
-        computerscore = computerscore + 1
-        console.log("computer won")
-    }else if (player == 3 &&computer == 2) {
-        alert("you won")
-        playerscore = playerscore + 1
-        console.log("you won")
-    }else if (player == 3 && computer == 3) {
+    if (player == computer) {
         alert("nobody won")
         console.log("nobody won")
     }
 
+    if (player == "R" && computer == "P") {
+        alert("computer won")
+        computerscore++
+        console.log("computer won")
+    }else if (player == "R" && computer == "S") {
+        alert("you won")
+        playerscore++
+        console.log("you won")
+    
+    }else if (player == "P" && computer == "R") {
+        alert("you won")
+        playerscore++
+        console.log("you won")
+    }else if (player == "P" && computer == "S") {
+        alert("computer won")
+        computerscore++
+        console.log("computer won")
+    
+    }else if (player == "S" && computer == "R") {
+        alert("computer won")
+        computerscore++
+        console.log("computer won")
+    }else if (player == "S" && computer == "P") {
+        alert("you won")
+        playerscore++
+        console.log("you won")
+    }
+    
+    spanElement1.textContent = computerscore
+    spanElement2.textContent = playerscore
+    
     alert("game ended, if you want play again press START button")
 }
