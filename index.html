@@ -35,6 +35,12 @@
                             SCISSORS = S
                         </li>
                         <li>
+                            If you want reset the game, press RESET button. 
+                        </li>
+                        <li>
+                            Whoever gets a score of 5 first wins
+                        </li>
+                        <li>
                             I hope you will understand the rest of the rules
                         </li>
                         <li>
@@ -42,22 +48,40 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-4  mt-5">
+                <div class="col-lg-2  mt-5">
                     <button onclick= "mainfunction()" type="button" class="btn btn-primary mt-5 btn-lg">START</button>
                 </div>
-                <div class="container">
-                    <div class="row mt-5 d-flex">
-                        <div class="col-sm-6">
-                            <div class="fw-bold h1">
-                                Tvoje score: <p><span id="player-score"></span></p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt2">
-                            <div class="fw-bold h1">
-                                Score počítača: <p><span id="computer-score"></span></p>
-                            </div>
-                        </div>
+                <div class="col-lg-2  mt-5">
+                    <button onclick="resetscore()" type="button" class="btn btn-primary mt-5 btn-lg">RESET</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-5 d-flex">
+                <div class="col-sm-6">
+                    <div class="fw-bold h1">
+                        Your score:<span id="player-score"></span>
                     </div>
+                </div>
+                <div class="col-sm-6 mt2">
+                    <div class="fw-bold h1">
+                        Computer score:<span id="computer-score"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="history" class="container mt-5">
+            <div class="row fw-bold h2">
+                <div class="col">
+                    HISTORY:
+                </div>
+            </div>
+            <div class="row">
+                <div class="col h3">
+                    How many times have you won a match: <span id="player-won"></span>
+                </div>
+                <div class="col h3">
+                    How many times computer won a match: <span id="computer-won"></span>
                 </div>
             </div>
         </div>
