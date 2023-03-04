@@ -1,13 +1,3 @@
-    {/* <li>
-       1 ROCK = R
-    </li>
-    <li>
-       2 PAPER = P
-    </li>
-    <li>
-       3 SCISSORS = S
-    </li> */}
-
 
 // counter
 
@@ -18,6 +8,11 @@ let computerscore = 0
 let playerwon = 0
 let computerwon = 0 
 
+let computerwonE = document.getElementById("computer-won")
+let playerwonE = document.getElementById("player-won")
+
+let computerscoreE = document.getElementById("computer-score")
+let playerscoreE = document.getElementById("player-score")
 
 function resetscore() {
     playerscore = 0
@@ -29,13 +24,15 @@ function resetscore() {
 
 
 function mainfunction() {
-    let spanElement3 = document.getElementById("computer-won")
-    let spanElement4 = document.getElementById("player-won")
+    let acceptrules = confirm("Do you know the rules?")
+    if (acceptrules) {
+        alert("Let's start the game!");
+    }else{
+        alert("Here are the rules: CHOOSE R,P or SROCK = R,PAPER = P,SCISSORS = S,If you want reset the game, press RESET button,Whoever gets a score of 5 first wins,I hope you will understand the rest of the rules")
+        alert("Let's start the game!");
+    }
 
-    let spanElement1 = document.getElementById("computer-score")
-    let spanElement2 = document.getElementById("player-score")
 
-    console.log("alert")
     let player = prompt("choose R, P, or S:", "")
     console.log("player=" + player)
     let letters = ['R', 'S', 'P']
@@ -76,22 +73,22 @@ function mainfunction() {
         console.log("you won this round")
     }
     
-    spanElement1.textContent = computerscore
-    spanElement2.textContent = playerscore
+    computerscoreE.textContent = computerscore
+    playerscoreE.textContent = playerscore
 
     alert("game ended, if you want play next round press START button")
     
-    if (playerscore == 2) {
+    if (playerscore == 5) {
         alert("YOU WON THIS MATCH")
         playerwon++
     }
-    if (computerscore == 2) {
+    if (computerscore == 5) {
         alert("COMPUTER WON THIS MATCH")
         computerwon++
     }
     
-    spanElement3.textContent = computerwon
-    spanElement4.textContent = playerwon
+    computerwonE.textContent = computerwon
+    playerwonE.textContent = playerwon
     
 }
 
