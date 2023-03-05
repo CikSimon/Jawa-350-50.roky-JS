@@ -2,29 +2,34 @@
 // counter
 
 // main block
+let ranking = ""
 let playerscore = 0
 let computerscore = 0
 
 let playerwon = 0
 let computerwon = 0 
 
-let computerwonE = document.getElementById("computer-won")
-let playerwonE = document.getElementById("player-won")
-
-let computerscoreE = document.getElementById("computer-score")
-let playerscoreE = document.getElementById("player-score")
-
 function resetscore() {
     playerscore = 0
     computerscore = 0
     playerwon = 0
-    computerwon= 0
+    computerwon = 0
+
     alert("RESET DONE, YOU WILL SEE THE RESULT IN NEXT ROUND")
 }
 
-
 function mainfunction() {
+
+    let computerwonE = document.getElementById("computer-won")
+    let playerwonE = document.getElementById("player-won")
+
+    let computerscoreE = document.getElementById("computer-score")
+    let playerscoreE = document.getElementById("player-score")
+
+    let rankingE = document.getElementById("rRanking")
+
     let acceptrules = confirm("Do you know the rules?")
+
     if (acceptrules) {
         alert("Let's start the game!");
     }else{
@@ -48,33 +53,41 @@ function mainfunction() {
     if (player == "R" && computer == "P") {
         alert("computer won this round")
         computerscore++
+        ranking += "Computer WON "
         console.log("computer won this round")
     }else if (player == "R" && computer == "S") {
         alert("you won this round")
         playerscore++
+        ranking += "Player WON "
         console.log("you won this round")
     
     }else if (player == "P" && computer == "R") {
         alert("you won this round")
         playerscore++
+        ranking += "Player WON "
         console.log("you won this round")
     }else if (player == "P" && computer == "S") {
         alert("computer won this round")
         computerscore++
+        ranking += "Computer WON "
         console.log("computer won this round")
     
     }else if (player == "S" && computer == "R") {
         alert("computer won this round")
         computerscore++
+        ranking += "Computer WON "
         console.log("computer won this round")
     }else if (player == "S" && computer == "P") {
         alert("you won this round")
         playerscore++
+        ranking += "Player WON "
         console.log("you won this round")
     }
     
     computerscoreE.textContent = computerscore
     playerscoreE.textContent = playerscore
+
+    rankingE.textContent = ranking
 
     alert("game ended, if you want play next round press START button")
     
