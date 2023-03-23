@@ -38,7 +38,15 @@ function mainfunction() {
     }
 
 
-    let player = prompt("choose R, P, or S:", "")
+    let player = prompt("choose R, P, or S:");
+    while (player !== "R" && player !== "P" && player !== "S") {
+        if (player === null) { // užívateľ klikol na tlačidlo "Cancel"
+            alert("You have canceled the input. The game will now exit.");
+            break; // ukončiť kód
+        }
+        alert("You entered an invalid value. Please choose R, P, or S.");
+        player = prompt("Choose R, P, or S:");
+    }
     console.log("player=" + player)
     let letters = ['R', 'S', 'P']
     let computer = letters[Math.floor(Math.random() * 3)]
