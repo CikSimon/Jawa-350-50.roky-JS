@@ -1,6 +1,3 @@
-
-// counter
-
 // main block
 let ranking = ""
 let playerscore = 0
@@ -40,9 +37,9 @@ function mainfunction() {
 
     let player = prompt("choose R, P, or S:");
     while (player !== "R" && player !== "P" && player !== "S") {
-        if (player === null) { // užívateľ klikol na tlačidlo "Cancel"
+        if (player === null) { // cancel button
             alert("You have canceled the input. The game will now exit.");
-            break; // ukončiť kód
+            break; // stop code
         }
         alert("You entered an invalid value. Please choose R, P, or S.");
         player = prompt("Choose R, P, or S:");
