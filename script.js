@@ -6,6 +6,8 @@ let computerscore = 0
 let playerwon = 0
 let computerwon = 0 
 
+let rulesAccepted = false;
+
 function resetscore() {
     playerscore = 0
     computerscore = 0
@@ -25,13 +27,15 @@ function mainfunction() {
 
     let rankingE = document.getElementById("rRanking")
 
-    let acceptrules = confirm("Do you know the rules?")
-
-    if (acceptrules) {
-        alert("Let's start the game!");
-    }else{
-        alert("Here are the rules: CHOOSE R,P or SROCK = R,PAPER = P,SCISSORS = S,If you want reset the game, press RESET button,Whoever gets a score of 5 first wins,I hope you will understand the rest of the rules")
-        alert("Let's start the game!");
+    if (!rulesAccepted) {
+        let acceptrules = confirm("Do you know the rules?");
+        if (acceptrules) {
+            alert("Let's start the game!");
+            rulesAccepted = true;
+        } else {
+            alert("Here are the rules: CHOOSE R,P or SROCK = R,PAPER = P,SCISSORS = S,If you want reset the game, press RESET button,Whoever gets a score of 5 first wins,I hope you will understand the rest of the rules");
+            alert("Let's start the game!");
+        }
     }
 
 
@@ -47,8 +51,8 @@ function mainfunction() {
     console.log("player=" + player)
     let letters = ['R', 'S', 'P']
     let computer = letters[Math.floor(Math.random() * 3)]
-    console.log("pc=" + computer)
-    alert("pc=" + computer)
+    console.log("computer chose: " + computer)
+    alert("computer chose: " + computer)
     
     if (player == computer) {
         alert("nobody won this round")
@@ -94,7 +98,7 @@ function mainfunction() {
 
     rankingE.textContent = ranking
 
-    alert("game ended, if you want play next round press START button")
+    alert("ROUND ended, if you want play next round press START button")
     
     if (playerscore == 5) {
         alert("YOU WON THIS MATCH")
