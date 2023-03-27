@@ -45,12 +45,15 @@
                             I hope you will understand the rest of the rules
                         </li>
                         <li>
-                            <img style="max-width: 300px;" src="./assets/1200px-Rock-paper-scissors.svg.png" alt="">
+                            Have fun and good luck
+                        </li>
+                        <li>
+                            <img style="max-width: 300px;" class="mt-5" src="./assets/1200px-Rock-paper-scissors.svg.png" alt="">
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-2  mt-5">
-                    <button onclick= "mainfunction()" type="button" class="btn btn-primary mt-5 btn-lg">START</button>
+                    <button onclick= "mainfunction()" type="button" class="btn btn-primary mt-5 btn-lg">START/CONTINUE</button>
                 </div>
                 <div class="col-lg-2  mt-5">
                     <button onclick="resetscore()" type="button" class="btn btn-primary mt-5 btn-lg">RESET</button>
@@ -59,14 +62,14 @@
         </div>
         <div class="container">
             <div class="row mt-5 d-flex">
-                <div class="col-sm-6">
-                    <div class="fw-bold h1">
-                        Your score:<span id="player-score"></span>
+                <div class="col">
+                    <div class="fw-bold h2">
+                        Your score in this match: <span id="player-score"></span>
                     </div>
                 </div>
-                <div class="col-sm-6 mt2">
-                    <div class="fw-bold h1">
-                        Computer score:<span id="computer-score"></span>
+                <div class="col">
+                    <div class="fw-bold h2">
+                        Computer score in this match: <span id="computer-score"></span>
                     </div>
                 </div>
             </div>
@@ -74,7 +77,7 @@
         <div id="history" class="container mt-5">
             <div class="row fw-bold h2">
                 <div class="col">
-                    HISTORY:
+                    HISTORY of won matches:
                 </div>
             </div>
             <div class="row">

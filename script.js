@@ -96,16 +96,22 @@ function mainfunction() {
     computerscoreE.textContent = computerscore
     playerscoreE.textContent = playerscore
 
+    console.log("score++")
+
     rankingE.textContent = ranking
 
     alert("ROUND ended, if you want play next round press START button")
     
     if (playerscore == 5) {
         alert("YOU WON THIS MATCH")
+        playerscore = 0
+        computerscore = 0
         playerwon++
     }
     if (computerscore == 5) {
         alert("COMPUTER WON THIS MATCH")
+        playerscore = 0
+        computerscore = 0
         computerwon++
     }
     
