@@ -1,7 +1,17 @@
 // main block
-let ranking = ""
 let playerscore = 0
 let computerscore = 0
+let pchose = ""
+let cchose = ""
+
+let rinput = 0
+let pinput = 0
+let sinput = 0
+
+let rcinput = 0
+let pcinput = 0
+let scinput = 0
+
 
 let playerwon = 0
 let computerwon = 0 
@@ -17,15 +27,26 @@ function resetscore() {
     alert("RESET DONE, YOU WILL SEE THE RESULT IN NEXT ROUND")
 }
 
-function mainfunction() {
+function startGame() {
+    pchose = ""
+    cchose = ""
 
-    let computerwonE = document.getElementById("computer-won")
-    let playerwonE = document.getElementById("player-won")
+    let computerwonElement = document.getElementById("computer-won")
+    let playerwonElement = document.getElementById("player-won")
 
-    let computerscoreE = document.getElementById("computer-score")
-    let playerscoreE = document.getElementById("player-score")
+    let computerscoreElement = document.getElementById("computer-score")
+    let playerscoreElement = document.getElementById("player-score")
 
-    let rankingE = document.getElementById("rRanking")
+    let pchoseElement = document.getElementById("p-chose")
+    let cchoseElement = document.getElementById("c-chose")
+
+    let rinputElement = document.getElementById("r-input")
+    let pinputElement = document.getElementById("p-input")
+    let sinputElement = document.getElementById("s-input")
+
+    let rcinputElement = document.getElementById("rc-input")
+    let pcinputElement = document.getElementById("pc-input")
+    let scinputElement = document.getElementById("sc-input")
 
     if (!rulesAccepted) {
         let acceptrules = confirm("Do you know the rules?");
@@ -62,43 +83,57 @@ function mainfunction() {
     if (player == "R" && computer == "P") {
         alert("computer won this round")
         computerscore++
-        ranking += "Computer WON "
         console.log("computer won this round")
+        rinput++
+        pcinput++
     }else if (player == "R" && computer == "S") {
         alert("you won this round")
         playerscore++
-        ranking += "Player WON "
         console.log("you won this round")
-    
+        rinput++
+        scinput++
     }else if (player == "P" && computer == "R") {
         alert("you won this round")
         playerscore++
-        ranking += "Player WON "
         console.log("you won this round")
+        pinput++
+        rcinput++
     }else if (player == "P" && computer == "S") {
         alert("computer won this round")
         computerscore++
-        ranking += "Computer WON "
         console.log("computer won this round")
-    
+        pinput++
+        scinput++
     }else if (player == "S" && computer == "R") {
         alert("computer won this round")
         computerscore++
-        ranking += "Computer WON "
         console.log("computer won this round")
+        sinput++
+        rcinput++
     }else if (player == "S" && computer == "P") {
         alert("you won this round")
         playerscore++
-        ranking += "Player WON "
         console.log("you won this round")
+        sinput++
+        pcinput++
     }
     
-    computerscoreE.textContent = computerscore
-    playerscoreE.textContent = playerscore
+    rinputElement.textContent = rinput
+    pinputElement.textContent = pinput
+    sinputElement.textContent = sinput
 
-    console.log("score++")
+    rcinputElement.textContent = rcinput
+    pcinputElement.textContent = pcinput
+    scinputElement.textContent = scinput
+    
+    computerscoreElement.textContent = computerscore
+    playerscoreElement.textContent = playerscore
+    
+    pchose = player
+    cchose = computer
 
-    rankingE.textContent = ranking
+    pchoseElement.textContent = pchose
+    cchoseElement.textContent = cchose
 
     alert("ROUND ended, if you want play next round press START button")
     
@@ -115,8 +150,8 @@ function mainfunction() {
         computerwon++
     }
     
-    computerwonE.textContent = computerwon
-    playerwonE.textContent = playerwon
+    computerwonElement.textContent = computerwon
+    playerwonElement.textContent = playerwon
     
 }
 

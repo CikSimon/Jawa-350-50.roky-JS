@@ -1,7 +1,9 @@
 body {
-    background-image: url("./assets/background3.jpg");
+    background-image: url("./assets/WhatsApp\ Image\ 2023-03-26\ at\ 20.43.19.jpg");
     background-attachment: fixed;
     background-size: cover;
 }
 
-
+.align-self-center {
+    align-self: center;
+}

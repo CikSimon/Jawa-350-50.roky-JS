@@ -14,7 +14,7 @@
     <section>
         <div class="container mt-5">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-4">
                     <h1>ROCK, PAPER, SCISSORS</h1>
                     <p class="fw-bold">
                         RULES:
@@ -47,50 +47,81 @@
                         <li>
                             Have fun and good luck
                         </li>
-                        <li>
-                            <img style="max-width: 300px;" class="mt-5" src="./assets/1200px-Rock-paper-scissors.svg.png" alt="">
-                        </li>
                     </ul>
                 </div>
-                <div class="col-lg-2  mt-5">
-                    <button onclick= "mainfunction()" type="button" class="btn btn-primary mt-5 btn-lg">START/CONTINUE</button>
-                </div>
-                <div class="col-lg-2  mt-5">
-                    <button onclick="resetscore()" type="button" class="btn btn-primary mt-5 btn-lg">RESET</button>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row mt-5 d-flex">
-                <div class="col">
-                    <div class="fw-bold h2">
+                <div class="col-lg-4  mt-5">
+                    <button onclick= "startGame()" type="button" class="btn btn-primary mt-5 btn-lg">START/CONTINUE</button>
+                    <div class="fw-bold h4 mt-5">
                         Your score in this match: <span id="player-score"></span>
                     </div>
+                    <div class="fw-bold h4">
+                        In the last round you chose: <span id="p-chose"></span>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="fw-bold h2">
+                <div class="col-lg-4  mt-5">
+                    <button onclick="startGame()" type="button" class="btn btn-primary mt-5 btn-lg">RESET</button>
+                    <div class="fw-bold mt-5 h4">
                         Computer score in this match: <span id="computer-score"></span>
+                    </div>
+                    <div class="fw-bold h4">
+                        In the last round computer chose: <span id="c-chose"></span>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="history" class="container mt-5">
-            <div class="row fw-bold h2">
+        </div>
+        <div id="history" class="container">
+            <div class="row d-flex">
                 <div class="col">
-                    HISTORY of won matches:
+                    <img style="max-width: 300px;" class="mt-5" src="./assets/1200px-Rock-paper-scissors.svg.png" alt="">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col h3">
-                    How many times have you won a match: <span id="player-won"></span>
+                <div class="col-lg-4">
+                    <div class="fw-bold h3">
+                        YOUR HISTORY:
+                    </div>
+                    <div class="fw-bold h4">
+                        Inputs
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                R = <span id="r-input"></span>
+                            </li>
+                            <li>
+                                P = <span id="p-input"></span>
+                            </li>
+                            <li>
+                                S = <span id="s-input"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="h4">
+                        How many times have you won a match: <span id="player-won"></span>
+                    </div>
                 </div>
-                <div class="col h3">
-                    How many times computer won a match: <span id="computer-won"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col h3 mt-4">
-                    RANKING: <span id="rRanking"></span>
+                <div class="col-lg-4">
+                    <div class="fw-bold h3">
+                        COMPUTER HISTORY:
+                    </div>
+                    <div class="fw-bold h4">
+                        Inputs
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                R = <span id="rc-input"></span>
+                            </li>
+                            <li>
+                                P = <span id="pc-input"></span>
+                            </li>
+                            <li>
+                                S = <span id="sc-input"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="h4">
+                        How many times computer won a match: <span id="computer-won"></span>
+                    </div>
                 </div>
             </div>
         </div>
