@@ -1,66 +1,100 @@
 // main block
-let playerscore = 0
-let computerscore = 0
-let pchose = ""
-let cchose = ""
+let playerScore = 0
+let computerScore = 0
+let pChose = ""
+let cChose = ""
 
-let rinput = 0
-let pinput = 0
-let sinput = 0
+let rInput = 0
+let pInput = 0
+let sInput = 0
 
-let rcinput = 0
-let pcinput = 0
-let scinput = 0
+let rcInput = 0
+let pcInput = 0
+let scInput = 0
 
 
-let playerwon = 0
-let computerwon = 0 
+let playerWon = 0
+let computerWon = 0 
 
 let rulesAccepted = false;
 
-function resetscore() {
-    playerscore = 0
-    computerscore = 0
-    playerwon = 0
-    computerwon = 0
+let computerWonElement = document.getElementById("computer-won")
+let playerWonElement = document.getElementById("player-won")
+
+let computerScoreElement = document.getElementById("computer-score")
+let playerScoreElement = document.getElementById("player-score")
+
+let pChoseElement = document.getElementById("p-chose")
+let cChoseElement = document.getElementById("c-chose")
+
+let rInputElement = document.getElementById("r-input")
+let pInputElement = document.getElementById("p-input")
+let sInputElement = document.getElementById("s-input")
+
+let rcInputElement = document.getElementById("rc-input")
+let pcInputElement = document.getElementById("pc-input")
+let scInputElement = document.getElementById("sc-input")
+
+let letters = ['R', 'S', 'P']
+let computer = letters[Math.floor(Math.random() * 3)]
+
+function resetGame() {
+    playerScore = 0
+    computerScore = 0
+    playerWon = 0
+    computerWon = 0
+    pChose = ""
+    cChose = ""
+    rInput = 0
+    pInput = 0
+    sInput = 0
+
+    rcInput = 0
+    pcInput = 0
+    scInput = 0
 
     alert("RESET DONE, YOU WILL SEE THE RESULT IN NEXT ROUND")
 }
 
 function startGame() {
-    pchose = ""
-    cchose = ""
+    pChose = ""
+    cChose = ""
 
-    let computerwonElement = document.getElementById("computer-won")
-    let playerwonElement = document.getElementById("player-won")
+    computerWonElement = document.getElementById("computer-won")
+    playerWonElement = document.getElementById("player-won")
 
-    let computerscoreElement = document.getElementById("computer-score")
-    let playerscoreElement = document.getElementById("player-score")
+    computerScoreElement = document.getElementById("computer-score")
+    playerScoreElement = document.getElementById("player-score")
 
-    let pchoseElement = document.getElementById("p-chose")
-    let cchoseElement = document.getElementById("c-chose")
+    pChoseElement = document.getElementById("p-chose")
+    cChoseElement = document.getElementById("c-chose")
 
-    let rinputElement = document.getElementById("r-input")
-    let pinputElement = document.getElementById("p-input")
-    let sinputElement = document.getElementById("s-input")
+    rInputElement = document.getElementById("r-input")
+    pInputElement = document.getElementById("p-input")
+    sInputElement = document.getElementById("s-input")
 
-    let rcinputElement = document.getElementById("rc-input")
-    let pcinputElement = document.getElementById("pc-input")
-    let scinputElement = document.getElementById("sc-input")
+    rcInputElement = document.getElementById("rc-input")
+    pcInputElement = document.getElementById("pc-input")
+    scInputElement = document.getElementById("sc-input")
 
     if (!rulesAccepted) {
-        let acceptrules = confirm("Do you know the rules?");
-        if (acceptrules) {
+        let acceptRules = confirm("Do you know the rules?");
+        if (acceptRules) {
             alert("Let's start the game!");
             rulesAccepted = true;
         } else {
             alert("Here are the rules: CHOOSE R,P or SROCK = R,PAPER = P,SCISSORS = S,If you want reset the game, press RESET button,Whoever gets a score of 5 first wins,I hope you will understand the rest of the rules");
             alert("Let's start the game!");
+            return
         }
     }
 
 
     let player = prompt("choose R, P, or S:");
+    if (player === null) {
+        alert("You have canceled the input. The game will now exit.");
+        return
+    }
     while (player !== "R" && player !== "P" && player !== "S") {
         if (player === null) { // cancel button
             alert("You have canceled the input. The game will now exit.");
@@ -70,8 +104,8 @@ function startGame() {
         player = prompt("Choose R, P, or S:");
     }
     console.log("player=" + player)
-    let letters = ['R', 'S', 'P']
-    let computer = letters[Math.floor(Math.random() * 3)]
+    letters = ['R', 'S', 'P']
+    computer = letters[Math.floor(Math.random() * 3)]
     console.log("computer chose: " + computer)
     alert("computer chose: " + computer)
     
@@ -82,76 +116,89 @@ function startGame() {
 
     if (player == "R" && computer == "P") {
         alert("computer won this round")
-        computerscore++
+        computerScore++
         console.log("computer won this round")
-        rinput++
-        pcinput++
+        rInput++
+        pcInput++
     }else if (player == "R" && computer == "S") {
         alert("you won this round")
-        playerscore++
+        playerScore++
         console.log("you won this round")
-        rinput++
-        scinput++
+        rInput++
+        scInput++
     }else if (player == "P" && computer == "R") {
         alert("you won this round")
-        playerscore++
+        playerScore++
         console.log("you won this round")
-        pinput++
-        rcinput++
+        pInput++
+        rcInput++
     }else if (player == "P" && computer == "S") {
         alert("computer won this round")
-        computerscore++
+        computerScore++
         console.log("computer won this round")
-        pinput++
-        scinput++
+        pInput++
+        scInput++
     }else if (player == "S" && computer == "R") {
         alert("computer won this round")
-        computerscore++
+        computerScore++
         console.log("computer won this round")
-        sinput++
-        rcinput++
+        sInput++
+        rcInput++
     }else if (player == "S" && computer == "P") {
         alert("you won this round")
-        playerscore++
+        playerScore++
         console.log("you won this round")
-        sinput++
-        pcinput++
+        sInput++
+        pcInput++
     }
     
-    rinputElement.textContent = rinput
-    pinputElement.textContent = pinput
-    sinputElement.textContent = sinput
-
-    rcinputElement.textContent = rcinput
-    pcinputElement.textContent = pcinput
-    scinputElement.textContent = scinput
+    if (player == "S" && computer == "S") {
+        sInput++
+        scInput++
+    }
+    if (player == "R" && computer == "R") {
+        rInput++
+        rcInput++
+    }
+    if (player == "P" && computer == "P") {
+        pInput++
+        pcInput++
+    }
     
-    computerscoreElement.textContent = computerscore
-    playerscoreElement.textContent = playerscore
-    
-    pchose = player
-    cchose = computer
+    rInputElement.textContent = rInput
+    pInputElement.textContent = pInput
+    sInputElement.textContent = sInput
 
-    pchoseElement.textContent = pchose
-    cchoseElement.textContent = cchose
+    rcInputElement.textContent = rcInput
+    pcInputElement.textContent = pcInput
+    scInputElement.textContent = scInput
+    
+    computerScoreElement.textContent = computerScore
+    playerScoreElement.textContent = playerScore
+    
+    pChose = player
+    cChose = computer
+
+    pChoseElement.textContent = pChose
+    cChoseElement.textContent = cChose
 
     alert("ROUND ended, if you want play next round press START button")
     
-    if (playerscore == 5) {
+    if (playerScore == 5) {
         alert("YOU WON THIS MATCH")
-        playerscore = 0
-        computerscore = 0
-        playerwon++
+        playerScore = 0
+        computerScore = 0
+        playerWon++
     }
-    if (computerscore == 5) {
+    if (computerScore == 5) {
         alert("COMPUTER WON THIS MATCH")
-        playerscore = 0
-        computerscore = 0
-        computerwon++
+        playerScore = 0
+        computerScore = 0
+        computerWon++
     }
     
-    computerwonElement.textContent = computerwon
-    playerwonElement.textContent = playerwon
+    computerWonElement.textContent = computerWon
+    playerWonElement.textContent = playerWon
     
 }
 

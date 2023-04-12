@@ -1,2 +1,0 @@
-ranking pridat pod cast skore a pod cast history zmenit na poradie zapasov. OK
-skore sa vynuluje po 5 bodoch a potom sa pripise vyherny zapas, skore nula OK
