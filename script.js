@@ -56,27 +56,7 @@ function resetGame() {
     alert("RESET DONE, YOU WILL SEE THE RESULT IN NEXT ROUND")
 }
 
-function startGame() {
-    pChose = ""
-    cChose = ""
-
-    computerWonElement = document.getElementById("computer-won")
-    playerWonElement = document.getElementById("player-won")
-
-    computerScoreElement = document.getElementById("computer-score")
-    playerScoreElement = document.getElementById("player-score")
-
-    pChoseElement = document.getElementById("p-chose")
-    cChoseElement = document.getElementById("c-chose")
-
-    rInputElement = document.getElementById("r-input")
-    pInputElement = document.getElementById("p-input")
-    sInputElement = document.getElementById("s-input")
-
-    rcInputElement = document.getElementById("rc-input")
-    pcInputElement = document.getElementById("pc-input")
-    scInputElement = document.getElementById("sc-input")
-
+function acceptRulesFunction() {
     if (!rulesAccepted) {
         let acceptRules = confirm("Do you know the rules?");
         if (acceptRules) {
@@ -88,27 +68,9 @@ function startGame() {
             return
         }
     }
+}
 
-
-    let player = prompt("choose R, P, or S:");
-    if (player === null) {
-        alert("You have canceled the input. The game will now exit.");
-        return
-    }
-    while (player !== "R" && player !== "P" && player !== "S") {
-        if (player === null) { // cancel button
-            alert("You have canceled the input. The game will now exit.");
-            break; // stop code
-        }
-        alert("You entered an invalid value. Please choose R, P, or S.");
-        player = prompt("Choose R, P, or S:");
-    }
-    console.log("player=" + player)
-    letters = ['R', 'S', 'P']
-    computer = letters[Math.floor(Math.random() * 3)]
-    console.log("computer chose: " + computer)
-    alert("computer chose: " + computer)
-    
+function whoWon() {
     if (player == computer) {
         alert("nobody won this round")
         console.log("nobody won this round")
@@ -164,7 +126,69 @@ function startGame() {
         pInput++
         pcInput++
     }
+}
+
+function scoreFive() {
+    if (playerScore == 5) {
+        alert("YOU WON THIS MATCH")
+        playerScore = 0
+        computerScore = 0
+        playerWon++
+    }
+    if (computerScore == 5) {
+        alert("COMPUTER WON THIS MATCH")
+        playerScore = 0
+        computerScore = 0
+        computerWon++
+    }
     
+}
+
+function startGame() {
+    pChose = ""
+    cChose = ""
+
+    computerWonElement = document.getElementById("computer-won")
+    playerWonElement = document.getElementById("player-won")
+
+    computerScoreElement = document.getElementById("computer-score")
+    playerScoreElement = document.getElementById("player-score")
+
+    pChoseElement = document.getElementById("p-chose")
+    cChoseElement = document.getElementById("c-chose")
+
+    rInputElement = document.getElementById("r-input")
+    pInputElement = document.getElementById("p-input")
+    sInputElement = document.getElementById("s-input")
+
+    rcInputElement = document.getElementById("rc-input")
+    pcInputElement = document.getElementById("pc-input")
+    scInputElement = document.getElementById("sc-input")
+
+    acceptRulesFunction()
+    
+    let player = prompt("choose R, P, or S:");
+    player = player.toUpperCase()
+    if (player === null) {
+        alert("You have canceled the input. The game will now exit.");
+        return
+    }
+    while (player !== "R" && player !== "P" && player !== "S") {
+        if (player === null) { // cancel button
+            alert("You have canceled the input. The game will now exit.");
+            break; // stop code
+        }
+        alert("You entered an invalid value. Please choose R, P, or S.");
+        player = prompt("Choose R, P, or S:");
+    }
+    console.log("player=" + player)
+    letters = ['R', 'S', 'P']
+    computer = letters[Math.floor(Math.random() * 3)]
+    console.log("computer chose: " + computer)
+    alert("computer chose: " + computer)
+    
+    whoWon()
+
     rInputElement.textContent = rInput
     pInputElement.textContent = pInput
     sInputElement.textContent = sInput
@@ -184,19 +208,8 @@ function startGame() {
 
     alert("ROUND ended, if you want play next round press START button")
     
-    if (playerScore == 5) {
-        alert("YOU WON THIS MATCH")
-        playerScore = 0
-        computerScore = 0
-        playerWon++
-    }
-    if (computerScore == 5) {
-        alert("COMPUTER WON THIS MATCH")
-        playerScore = 0
-        computerScore = 0
-        computerWon++
-    }
-    
+    scoreFive()
+
     computerWonElement.textContent = computerWon
     playerWonElement.textContent = playerWon
     
