@@ -145,6 +145,22 @@ function scoreFive() {
 }
 
 function startGame() {
+
+    let rowsContainer = document.getElementById("rows");
+    let newRow = document.createElement("div");
+    newRow.textContent = "riadok1.: kolo 1, hráč = " + pChose + ", player = " + cChose + ", vyhral hráč.";
+    rowsContainer.appendChild(newRow);
+
+    for (let i = 1; i <= 10; i++) {
+    let newRow = document.createElement("div");
+    newRow.textContent = "riadok" + i + ".: kolo " + i + ", hráč = " + pChose + ", player = " + cChose + ", vyhral hráč.";
+    rowsContainer.appendChild(newRow);
+    }
+
+
+
+
+
     pChose = ""
     cChose = ""
 
