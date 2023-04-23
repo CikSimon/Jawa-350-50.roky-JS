@@ -12,6 +12,8 @@ let rcInput = 0
 let pcInput = 0
 let scInput = 0
 
+let roundCounter = 0
+
 
 let playerWon = 0
 let computerWon = 0 
@@ -52,6 +54,8 @@ function resetGame() {
     rcInput = 0
     pcInput = 0
     scInput = 0
+
+    roundCounter = 0
 
     alert("RESET DONE, YOU WILL SEE THE RESULT IN NEXT ROUND")
 }
@@ -145,22 +149,6 @@ function scoreFive() {
 }
 
 function startGame() {
-
-    let rowsContainer = document.getElementById("rows");
-    let newRow = document.createElement("div");
-    newRow.textContent = "riadok1.: kolo 1, hráč = " + pChose + ", player = " + cChose + ", vyhral hráč.";
-    rowsContainer.appendChild(newRow);
-
-    for (let i = 1; i <= 10; i++) {
-    let newRow = document.createElement("div");
-    newRow.textContent = "riadok" + i + ".: kolo " + i + ", hráč = " + pChose + ", player = " + cChose + ", vyhral hráč.";
-    rowsContainer.appendChild(newRow);
-    }
-
-
-
-
-
     pChose = ""
     cChose = ""
 
@@ -228,6 +216,20 @@ function startGame() {
 
     computerWonElement.textContent = computerWon
     playerWonElement.textContent = playerWon
-    
+
+    let byidPlayerComputerWon = "";
+
+    if (playerScore > computerScore) {
+        byidPlayerComputerWon = "player";
+    } else {
+        byidPlayerComputerWon = "computer";
+    }
+
+    roundCounter++;
+
+    let rowsContainer = document.getElementById("rows");
+    let newRow = document.createElement("div");
+    newRow.textContent = "kolo " + roundCounter + ", hráč: " + pChose + ", počítač: " + cChose + ", vyhral: " + byidPlayerComputerWon;
+    rowsContainer.appendChild(newRow);
 }
 
