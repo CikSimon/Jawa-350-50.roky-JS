@@ -1,4 +1,8 @@
 // main block
+let player
+let computer
+let letters
+
 let playerScore = 0
 let computerScore = 0
 let pChose = ""
@@ -36,9 +40,6 @@ let sInputElement = document.getElementById("s-input")
 let rcInputElement = document.getElementById("rc-input")
 let pcInputElement = document.getElementById("pc-input")
 let scInputElement = document.getElementById("sc-input")
-
-let letters = ['R', 'S', 'P']
-let computer = letters[Math.floor(Math.random() * 3)]
 
 function resetGame() {
     playerScore = 0
@@ -223,6 +224,9 @@ function startGame() {
         byidPlayerComputerWon = "player";
     } else {
         byidPlayerComputerWon = "computer";
+    }
+    if (playerScore == computerScore) {
+        byidPlayerComputerWon = "nikto(remiza)";
     }
 
     roundCounter++;
