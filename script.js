@@ -2,7 +2,7 @@
 // main block
 let player
 let computer
-let letters
+const letters = ['R', 'P', 'S'];
 
 let gameData = {
   playerScore: 0,
@@ -57,6 +57,8 @@ function resetGame() {
     gameData.scInput = 0
     gameData.roundCounter = 0
     console.log("ukoncenie reset game")
+    console.log("skuska resetu, hodnota playerscore:")
+    console.log(gameData.playerScore)
     alert("RESET DONE, YOU WILL SEE THE RESULT IN NEXT ROUND")
 }
 
@@ -66,14 +68,14 @@ function acceptRulesFunction() {
         if (acceptRules) {
             alert("Let's start the game!")
             rulesAccepted = true
-            console.log("vracia true")
+            console.log("pravidla boli akceptovane")
             return
         } else {
             console.log("dostalo sa do else(pravidla)")
             alert("Here are the rules: CHOOSE R,P or SROCK = R,PAPER = P,SCISSORS = S,If you want reset the game, press RESET button,Whoever gets a score of 5 first wins,I hope you will understand the rest of the rules");
             alert("Let's start the game!")
             rulesAccepted = false
-            console.log("vracia false")
+            console.log("pravidla neboli akceptovane ale boli vypisane")
         }
     }
 }
@@ -86,7 +88,7 @@ function whoWon() {
 
     if (player == "R" && computer == "P") {
         alert("computer won this round")
-        computerScore++
+        gameData.computerScore++
         console.log("computer won this round")
         gameData.rInput++
         gameData.pcInput++
@@ -247,5 +249,7 @@ function startGame() {
     let newRow = document.createElement("div")
     newRow.textContent = "kolo " + gameData.roundCounter + ", hráč: " + gameData.pChose + ", počítač: " + gameData.cChose + ", vyhral: " + byidPlayerComputerWon
     rowsContainer.appendChild(newRow)
+
+    console.log("who won, hodnoty" + gameData.pInput, gameData.pcInput, gameData.rInput, gameData.rcInput, gameData.sInput, gameData.scInput)
 }
 
