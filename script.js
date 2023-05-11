@@ -2,7 +2,7 @@
 // main block
 let player
 let computer
-const letters = ['R', 'P', 'S'];
+let letters = ['R', 'P', 'S'];
 
 let gameData = {
   playerScore: 0,
@@ -70,13 +70,13 @@ function acceptRulesFunction() {
             rulesAccepted = true
             console.log("pravidla boli akceptovane")
             return
-        } else {
+        } /* else {
             console.log("dostalo sa do else(pravidla)")
             alert("Here are the rules: CHOOSE R,P or SROCK = R,PAPER = P,SCISSORS = S,If you want reset the game, press RESET button,Whoever gets a score of 5 first wins,I hope you will understand the rest of the rules");
             alert("Let's start the game!")
             rulesAccepted = false
             console.log("pravidla neboli akceptovane ale boli vypisane")
-        }
+        } */
     }
 }
 
@@ -158,7 +158,6 @@ function scoreFive() {
 }
 
 function cChoseGenerate() {
-    letters = ['R', 'S', 'P']
     computer = letters[Math.floor(Math.random() * 3)]
     console.log("computer chose: " + computer)
     alert("computer chose: " + computer)
@@ -169,23 +168,6 @@ function cChoseGenerate() {
 function startGame() {
     gameData.pChose = ""
     gameData.cChose = ""
-
-    computerWonElement = document.getElementById("computer-won")
-    playerWonElement = document.getElementById("player-won")
-
-    computerScoreElement = document.getElementById("computer-score")
-    playerScoreElement = document.getElementById("player-score")
-
-    pChoseElement = document.getElementById("p-chose")
-    cChoseElement = document.getElementById("c-chose")
-
-    rInputElement = document.getElementById("r-input")
-    pInputElement = document.getElementById("p-input")
-    sInputElement = document.getElementById("s-input")
-
-    rcInputElement = document.getElementById("rc-input")
-    pcInputElement = document.getElementById("pc-input")
-    scInputElement = document.getElementById("sc-input")
 
     acceptRulesFunction()
     
