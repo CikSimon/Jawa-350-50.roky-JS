@@ -19,13 +19,10 @@ let gameData = {
   scInput: 0,
   roundCounter: 0,
 }
-console.log("definovanie objektu")
-
 
 let rulesAccepted = false;
 
 function resetGame() {
-    console.log("spustenie reset game")
     gameData.playerScore = 0
     gameData.computerScore = 0
     gameData.playerWon = 0
@@ -39,10 +36,6 @@ function resetGame() {
     gameData.pcInput = 0
     gameData.scInput = 0
     gameData.roundCounter = 0
-    console.log("ukoncenie reset game")
-    console.log("skuska resetu, hodnota playerscore:")
-    console.log(gameData.playerScore)
-    alert("RESET DONE, YOU WILL SEE THE RESULT IN NEXT ROUND")
 }
 
 function acceptRulesFunction() {
@@ -75,9 +68,6 @@ function whoWon() {
         console.log("computer won this round")
         gameData.rInput++
         gameData.pcInput++
-        console.log("prve pridanie inputov:tu su:")
-        console.log(gameData.rInput)
-        console.log(gameData.pcInput)
     }else if (player == "R" && computer == "S") {
         alert("you won this round")
         gameData.playerScore++
@@ -122,9 +112,6 @@ function whoWon() {
         gameData.pInput++
         gameData.pcInput++
     }
-
-    console.log("whowon prebehla")
-    console.log(gameData)
 }
 
 function scoreFive() {
@@ -152,12 +139,9 @@ function cChoseGenerate() {
 
 
 function startGame() {
-
-    console.log("gameData:", gameData);
-
     acceptRulesFunction()
     
-    let player = prompt("choose R, P, or S:")
+    player = prompt("choose R, P, or S:")
     if (player === null) {
         alert("You have canceled the input. The game will now exit.")
         return
@@ -173,20 +157,12 @@ function startGame() {
     }
     console.log("player=" + player)
     cChoseGenerate()
-    console.log("preslo volanie cChose generate, hodnota:")
-    console.log(computer)
-    
+
     whoWon()
-    console.log("za funkciou whowon")
-    
-    console.log("gameData:", gameData);
-
-
 
     alert("ROUND ended, if you want play next round press START button")
-    
-    scoreFive()
 
+    scoreFive()
 
     let byidPlayerComputerWon = "";
 
@@ -200,16 +176,28 @@ function startGame() {
     }
     
     document.getElementById("player-score").innerHTML = gameData.playerScore
-    
-    console.log("gameData:", gameData);
+    document.getElementById("p-chose").innerHTML = gameData.player
+    document.getElementById("computer-score").innerHTML = gameData.computerScore
+    document.getElementById("c-chose").innerHTML = gameData.computer
 
+    document.getElementById("r-input").innerHTML = gameData.rInput
+    document.getElementById("s-input").innerHTML = gameData.sInput
+    document.getElementById("p-input").innerHTML = gameData.pInput
+
+    document.getElementById("player-won").innerHTML = gameData.playerWon
+
+    document.getElementById("rc-input").innerHTML = gameData.rcInput
+    document.getElementById("sc-input").innerHTML = gameData.scInput
+    document.getElementById("pc-input").innerHTML = gameData.pcInput
+
+    document.getElementById("computer-won").innerHTML = gameData.computerWon
+    
+    
     gameData.roundCounter++;
 
     let rowsContainer = document.getElementById("rows")
     let newRow = document.createElement("div")
     newRow.textContent = "kolo " + gameData.roundCounter + ", hráč: " + gameData.pChose + ", počítač: " + gameData.cChose + ", vyhral: " + byidPlayerComputerWon
     rowsContainer.appendChild(newRow)
-
-    console.log("gameData:", gameData);
 }
 
